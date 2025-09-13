@@ -56,39 +56,27 @@
         </section>
     </main>
     <script>
-        // Initialize Express app
-        const express = require('express');
-        const bodyParser = require('body-parser');
-        const xlsx = require('xlsx');
-        const cors = require('cors');
-        
-        const app = express();
-        
-        // Middleware
-        app.use(cors());
-        app.use(bodyParser.json());
-        
-        // Serve static files from the 'public' directory
-        app.use(express.static('public'));
-        
-        // API endpoint to handle form submissions
-        app.post('/api/submit-form', (req, res) => {
-            const { visitorName, visitorEmail } = req.body;
-            
-            // Here you can handle the form submission, e.g., save to database or send an email
-            
-            // For demonstration, let's just log the data and send a response
-            console.log(`Name: ${visitorName}, Email: ${visitorEmail}`);
-            
-            // Send a response back to the client
-            res.json({ message: 'Form submitted successfully!' });
+    document.getElementById('visitorForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        const name = document.getElementById('visitorName').value.trim();
+        const email = document.getElementById('visitorEmail').value.trim();
+        const messageDiv = document.getElementById('formMessage');
+        fetch('http://localhost:3000/api/visit', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name, email })
+        })
+        .then(res => res.json())
+        .then(data => {
+            messageDiv.textContent = data.message;
+            messageDiv.style.color = "#52b6ff";
+            document.getElementById('visitorForm').reset();
+        })
+        .catch(() => {
+            messageDiv.textContent = "Submission failed. Please try again.";
+            messageDiv.style.color = "#ff4d4d";
         });
-        
-        // Start the server
-        const PORT = process.env.PORT || 3000;
-        app.listen(PORT, () => {
-            console.log(`Server is running on port ${PORT}`);
-        });
+    });
     </script>
 </body>
 </html>

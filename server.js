@@ -39,26 +39,3 @@ app.post('/api/visit', (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
-
-// Client-side script (to be included in contact.html)
-document.getElementById('visitorForm').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const name = document.getElementById('visitorName').value.trim();
-    const email = document.getElementById('visitorEmail').value.trim();
-    const messageDiv = document.getElementById('formMessage');
-    fetch('http://localhost:3000/api/visit', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email })
-    })
-    .then(res => res.json())
-    .then(data => {
-        messageDiv.textContent = data.message;
-        messageDiv.style.color = "#52b6ff";
-        document.getElementById('visitorForm').reset();
-    })
-    .catch(() => {
-        messageDiv.textContent = "Submission failed. Please try again.";
-        messageDiv.style.color = "#ff4d4d";
-    });
-});
