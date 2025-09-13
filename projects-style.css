@@ -1,0 +1,212 @@
+body {
+    /* Sets up base font, background, and text color for the whole page */
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #111c2a;
+    color: #007bff;
+}
+
+header {
+    /* Styles the top header bar */
+    background: #111c2a;
+    border-bottom: 1px solid #111c2a;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.09);
+}
+
+.navbar {
+    /* Layout for navigation bar: logo and links */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 40px 22px 44px;
+}
+
+.logo {
+    /* Styles for the logo text */
+    font-weight: bold;
+    font-size: 21px;
+    letter-spacing: 1px;
+}
+
+.logo img {
+    /* Logo image styling */
+    height: 32px;
+    vertical-align: middle;
+    margin-right: 10px;
+    border-radius: 50%;
+    background: #23243a;
+    padding: 4px;
+}
+
+nav a {
+    /* Navigation links styling */
+    color:#007bff;
+    text-decoration: none;
+    margin: 0 20px;
+    font-size: 17px;
+    position: relative;
+    transition: color 0.22s;
+}
+
+nav a.active,
+nav a:hover {
+    /* Highlight active or hovered nav links */
+    color: #52b6ff;
+}
+
+/* === Project Section === */
+.project-section {
+    /* Main container for project details */
+    max-width: 1120px;
+    margin: 40px auto 0 auto;
+    background: #212738;
+    border-radius: 16px;
+    box-shadow: 0 8px 48px rgba(46,58,89,0.22);
+    padding: 40px;
+}
+
+.project-header-row {
+    display: flex;
+    align-items: flex-start; /* Align items to the top */
+    justify-content: space-between; /* Space between header and image */
+    gap: 36px;
+    padding: 22px 24px;
+}
+
+.project-info h1 {
+    /* Project title styling */
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: #007bff;
+    /* Only as wide as the text content */
+    display: inline-block;
+    width: auto;
+    max-width: 100%;
+    white-space: nowrap;
+}
+
+/* === Content Layout === */
+.content-row {
+    /* Layout for overview, tech/tools, and artwork */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 22px;
+}
+
+.overview, .tech-tools {
+    /* Card styling for overview and tech/tools sections */
+    flex: 1.3;
+    min-width: 260px;
+    background: #23263a;
+    border-radius: 10px;
+    padding: 22px 24px;
+}
+
+.tech-tools {
+    /* Extra margin for tech/tools card */
+    margin-left: 0px;
+}
+
+.overview h2,
+.tech-tools h2 {
+    /* Section headings */
+    font-size: 1.2rem;
+    color: #90caf9;
+    margin: 0 0 12px 0;
+}
+
+/* === Technology List === */
+.tech-list {
+    /* Layout for technology/tool tags */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px 16px;
+    margin-top: 10px;
+}
+
+.tech-list span {
+    /* Individual technology/tool tag styling */
+    background: #26324b;
+    color: #b9d7fa;
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.97em;
+    margin-bottom: 7px;
+    letter-spacing: 0.2px;
+}
+
+/* === Project Artwork === */
+.project-artwork {
+    /* Container for project image/artwork */
+    flex: 1;
+    min-width: 180px;
+    display: flex;
+    align-items: flex-start; /* Align image to top */
+    justify-content: flex-end; /* Align image to right */
+    padding: 16px 0;
+}
+
+.project-artwork img {
+    /* Project image styling */
+    height: 140px;
+    width: auto;
+    filter: drop-shadow(0 0 19px #0e315c44);
+    border-radius: 9px;
+    background: #1b2132;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+/* === Impact Section === */
+.impact-row {
+    /* Layout for impact cards */
+    display: flex;
+    gap: 34px;
+    margin-top: 18px;
+}
+
+.impact-row > div {
+    /* Card styling for impact section (formerly .impact) */
+    flex: 1;
+    background: #23263a;
+    border-radius: 10px;
+    padding: 18px 22px;
+}
+
+.impact-row h3 {
+    /* Impact card heading */
+    color: #90caf9;
+    font-size: 1.07rem;
+    margin: 0 0 10px 0;
+}
+
+.impact-row ul {
+    /* List styling for impact points */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.impact-row ul li {
+    /* Individual impact point styling */
+    margin-bottom: 8px;
+    padding-left: 18px;
+    position: relative;
+}
+
+.impact-row ul li:before {
+    /* Custom bullet for impact points */
+    content: '';
+    width: 8px;
+    height: 8px;
+    background: #52b6ff;
+    border-radius: 50%;
+    display: inline-block;
+    margin-right: 10px;
+    position: absolute;
+    left: 0;
+    top: 6px;
+}
